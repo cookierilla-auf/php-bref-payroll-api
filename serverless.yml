@@ -1,0 +1,38 @@
+service: php-bref-payroll-01a1538e
+
+provider:
+  name: aws
+  region: ap-southeast-1
+  stage: ${opt:stage, 'lab'}
+  memorySize: 512
+  timeout: 28
+  logRetentionInDays: 7
+  environment:
+    APP_ENV: prod
+    PAYSLIPS_BUCKET: ${env:PAYSLIPS_BUCKET}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: s3:PutObject
+          Resource: arn:aws:s3:::${env:PAYSLIPS_BUCKET}/payslips/*
+
+functions:
+  web:
+    handler: index.php
+    runtime: php-84-fpm
+    events:
+      - httpApi: '*'
+
+plugins:
+  - ./vendor/bref/bref
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!tests/**'
+    - '!scripts/**'
+    - '!evidence/**'
+    - '!.git/**'
+    - '!*.md'
+    - '!package*.json'

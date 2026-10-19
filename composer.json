@@ -1,0 +1,23 @@
+{
+  "name": "student/php-bref-payroll-api",
+  "description": "CSV payroll API and S3 PDF payslips on AWS Lambda",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.2",
+    "ext-dom": "*",
+    "ext-mbstring": "*",
+    "bref/bref": "^3.0",
+    "bramus/router": "^1.6",
+    "dompdf/dompdf": "^3.1",
+    "aws/aws-sdk-php": "^3.0"
+  },
+  "autoload": { "psr-4": { "Payroll\\": "src/" } },
+  "config": { "sort-packages": true, "platform": { "php": "8.2.12" } },
+  "extra": { "aws/aws-sdk-php": ["S3", "Sts"] },
+  "scripts": {
+    "post-autoload-dump": "Aws\\Script\\Composer\\Composer::removeUnusedServices",
+    "test": "@php tests/run.php",
+    "serve": "@php -S 127.0.0.1:8080 index.php"
+  }
+}

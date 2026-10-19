@@ -1,0 +1,6 @@
+{
+  "name": "php-bref-payroll-api",
+  "private": true,
+  "scripts": { "deploy": "serverless deploy --stage lab", "package": "serverless package --stage lab" },
+  "devDependencies": { "osls": "^4.0.0" }
+}
