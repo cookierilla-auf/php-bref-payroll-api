@@ -1,0 +1,14 @@
+{
+  "report": {
+    "total_payroll_records": 600,
+    "total_gross_pay": 4981004.63,
+    "total_deductions": 849478.7,
+    "total_net_pay": 4131525.93
+  },
+  "negative_deduction_records": 245,
+  "reversed_pay_period_records": 311,
+  "sha256": {
+    "employees.csv": "6fffc498028dd50f42826641c1b0c31c1181f30d499696001c618b080521f6da",
+    "payroll.csv": "261e100a3bc1887cfdbb24bdc992494ebfe73cef4ef6416b36e9e77fbc85e82d"
+  }
+}
