@@ -2,6 +2,9 @@
 
 A classroom payroll API using PHP, Bref 3, API Gateway HTTP API, CSV, Bramus Router, Dompdf and Amazon S3. No database is used.
 
+**Live API:** https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com  
+**Repository:** https://github.com/cookierilla-auf/php-bref-payroll-api
+
 ## Endpoints
 
 | Method | Path | Result |
@@ -44,7 +47,7 @@ The classroom API is public and uses synthetic sample data. All four endpoints a
 ## Test the deployed API
 
 ```bash
-BASE_URL="https://YOUR-API-ID.execute-api.ap-southeast-1.amazonaws.com"
+BASE_URL="https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com"
 curl -i "$BASE_URL/api/employees"
 curl -i "$BASE_URL/api/reports/payroll"
 curl -i "$BASE_URL/api/payslips/2"
@@ -57,6 +60,12 @@ curl -i -X POST "$BASE_URL/api/employees"
 Expected totals: **600** payroll records; **4,981,004.63** gross pay; **849,478.70** deductions; **4,131,525.93** net pay. Payroll 2 belongs to employee 9, Jonas Ali: gross 3,489.64, deductions 101.70, net 3,387.94.
 
 `tests/run.php` exercises routing, typed employee records, joins, exact money, source anomalies, missing files, invalid IDs, unsupported methods, and SDK upload success/failure using AWS's mock handler. `scripts/verify-dataset.py` calculates expectations independently using Python Decimal and records the CSV SHA-256 hashes in `tests/expected.json`. Run it with Python 3 when replacing the dataset intentionally.
+
+Verification on October 19, 2026: **24 checks passed** in CloudShell, and **10 live API requests passed** with expected status codes. The actual S3 PDF was downloaded, rendered and inspected; it is one readable A4 page. An anonymous request to the S3 object returned HTTP 403.
+
+Reproduce live verification with `python3 scripts/smoke-test.py https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com`. Run `python3 scripts/verify-aws.py` in CloudShell to check the deployed memory, timeout, PHP layer, log retention, restricted upload policy, bucket privacy and PDF metadata. These scripts are specific to this laboratory's named resources.
+
+The sandboxed Windows PHP installation reported existing files as unreadable when the SDK checked permissions. The full SDK and PDF suite was therefore validated on Linux CloudShell, followed by successful requests against the actual Lambda runtime.
 
 ## Dataset and interpretation
 
