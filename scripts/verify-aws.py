@@ -13,7 +13,8 @@ def aws(*args):
 config = aws('lambda', 'get-function-configuration', '--function-name', function)
 assert config['MemorySize'] == 512 and config['Timeout'] == 28
 assert config['Environment']['Variables']['PAYSLIPS_BUCKET'] == bucket
-assert any('php-84-fpm' in layer['Arn'] for layer in config['Layers'])
+# Bref 3 uses the consolidated PHP 8.4 layer for its FPM handler.
+assert any(':layer:php-84:' in layer['Arn'] for layer in config['Layers'])
 block = aws('s3api', 'get-public-access-block', '--bucket', bucket)['PublicAccessBlockConfiguration']
 assert all(block.values()) and len(block) == 4
 obj = aws('s3api', 'head-object', '--bucket', bucket, '--key', 'payslips/2.pdf')
