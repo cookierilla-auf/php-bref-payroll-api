@@ -1,0 +1,73 @@
+{
+  "verified_at_utc": "2026-10-19T10:08:43.329025+00:00",
+  "base_url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com",
+  "employee_count": 500,
+  "report": {
+    "total_payroll_records": 600,
+    "total_gross_pay": 4981004.63,
+    "total_deductions": 849478.7,
+    "total_net_pay": 4131525.93
+  },
+  "checks": [
+    {
+      "name": "employees",
+      "method": "GET",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/employees",
+      "status": 200
+    },
+    {
+      "name": "payroll-report",
+      "method": "GET",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/reports/payroll",
+      "status": 200
+    },
+    {
+      "name": "payslip-2",
+      "method": "GET",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/payslips/2",
+      "status": 200
+    },
+    {
+      "name": "generate-payslip-2",
+      "method": "POST",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/payslips/2/generate",
+      "status": 200
+    },
+    {
+      "name": "regenerate-payslip-2",
+      "method": "POST",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/payslips/2/generate",
+      "status": 200
+    },
+    {
+      "name": "invalid-id",
+      "method": "GET",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/payslips/abc",
+      "status": 400
+    },
+    {
+      "name": "missing-id",
+      "method": "GET",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/payslips/999999",
+      "status": 404
+    },
+    {
+      "name": "unsupported-method",
+      "method": "POST",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/employees",
+      "status": 405
+    },
+    {
+      "name": "unknown-route",
+      "method": "GET",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/unknown",
+      "status": 404
+    },
+    {
+      "name": "payslip-negative-deductions",
+      "method": "GET",
+      "url": "https://c3vlnepnjl.execute-api.ap-southeast-1.amazonaws.com/api/payslips/4",
+      "status": 200
+    }
+  ]
+}

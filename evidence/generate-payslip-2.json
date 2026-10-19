@@ -1,0 +1,1 @@
+{"success":true,"message":"Payslip generated and uploaded.","data":{"payroll_id":2,"s3_key":"payslips/2.pdf","payslip_file":"https://php-bref-payroll-408852558600-01a1538e.s3.ap-southeast-1.amazonaws.com/payslips/2.pdf"}}

@@ -1,0 +1,31 @@
+{
+  "function": "php-bref-payroll-01a1538e-lab-web",
+  "region": "ap-southeast-1",
+  "memory_mb": 512,
+  "timeout_seconds": 28,
+  "layers": [
+    "arn:aws:lambda:ap-southeast-1:873528684822:layer:php-84:23"
+  ],
+  "log_retention_days": 7,
+  "bucket": "php-bref-payroll-408852558600-01a1538e",
+  "public_access_block": {
+    "BlockPublicAcls": true,
+    "IgnorePublicAcls": true,
+    "BlockPublicPolicy": true,
+    "RestrictPublicBuckets": true
+  },
+  "s3_permission": {
+    "Action": [
+      "s3:PutObject"
+    ],
+    "Resource": "arn:aws:s3:::php-bref-payroll-408852558600-01a1538e/payslips/*",
+    "Effect": "Allow"
+  },
+  "pdf": {
+    "key": "payslips/2.pdf",
+    "bytes": 22770,
+    "content_type": "application/pdf",
+    "encryption": "AES256",
+    "etag": "\"8b12c21063c7007b0fc2587cda5a8985\""
+  }
+}

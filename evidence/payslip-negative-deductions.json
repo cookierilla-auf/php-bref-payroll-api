@@ -1,0 +1,1 @@
+{"success":true,"data":{"payroll_id":4,"employee_id":423,"employee_name":"Diego Costa","employee":{"id":423,"full_name":"Diego Costa","email":"diego.costa@example.com","position_id":17,"department_id":8,"manager_id":127},"pay_period_start":"2021-11-13","pay_period_end":"2023-07-04","gross_pay":6151.32,"deductions":-1994.52,"net_pay":8145.84}}

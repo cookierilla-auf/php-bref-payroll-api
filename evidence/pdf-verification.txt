@@ -1,0 +1,21 @@
+Actual S3 PDF: payslips/2.pdf
+Pages: 1
+
+PAYSLIP
+Payroll reference #2
+Employee payroll laboratory
+EMPLOYEE DETAILS
+Full name Jonas Ali
+Employee ID 9
+Email jonas.ali@example.com
+Department / position 3 / 13
+PAY PERIOD
+Period start 2023-08-13
+Period end 2022-11-02
+PAYROLL FIGURES
+Gross pay 3,489.64
+Deductions (gross minus net) 101.70
+Net pay 3,387.94
+Amounts are shown in dataset units; no currency is specified by the source. Original dates and amounts are preserved. Negative deductions or
+reversed dates reflect synthetic source data.
+Generated from the Employees and Payroll dataset, version 3. This is synthetic classroom data.
